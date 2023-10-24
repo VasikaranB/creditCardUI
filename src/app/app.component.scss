@@ -1,0 +1,229 @@
+//title css
+.header {
+  background-color: #006bb7;
+  height: 3rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+}
+
+//form css
+.form-div {
+  margin-top: 38%;
+  z-index: 100;
+}
+
+// card css
+.cardnew {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  height: 410px;
+  width: 350px;
+  border-radius: 5px;
+  margin-top: 30px;
+  box-shadow: 0px 0px 10px #006bb7;
+}
+.card-name {
+  text-transform: uppercase;
+}
+
+//dropdown button
+.btn-select {
+  border: 1px solid #ced4da;
+  width: 6rem;
+}
+.btn {
+  text-align: left;
+}
+
+// expiration date field
+.exp-date {
+  display: flex;
+  justify-content: space-between;
+}
+.dropdown-toggle::after {
+  position: absolute !important;
+  right: 11% !important;
+  top: 45% !important;
+}
+.dropdown-menu {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+//flip card
+.card-img {
+  width: 100px;
+  position: absolute;
+  left: 20%;
+  top: -10%;
+  transform: translate(-50%, -50%);
+}
+
+// card image css
+.card-show {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all 600ms;
+  transition: all 600ms;
+  z-index: 20;
+}
+.card-show div {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  line-height: 200px;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 50%;
+}
+
+// chip, card, logo css
+img.base-img {
+  border-radius: 5%;
+  height: 200px;
+}
+img.chip-img {
+  z-index: 99;
+  position: absolute;
+  height: 35px;
+  top: 25%;
+  left: 20%;
+}
+img.brand-img {
+  z-index: 99;
+  position: absolute;
+  height: 35px;
+  top: 25%;
+  left: 220%;
+  width: 70px;
+}
+.chip-num {
+  z-index: 99;
+  position: absolute;
+  top: 90%;
+  left: -43%;
+  color: white;
+  font-size: 24px;
+  width: 400px;
+  text-align: center;
+}
+
+// text on image css
+.sub-text {
+  z-index: 99;
+  position: absolute;
+  top: 60%;
+  left: 20%;
+  color: white;
+  font-size: 9px;
+  width: 180px;
+  text-align: left;
+  font-weight: 200;
+}
+.sub-cvv {
+  top: 0%;
+  left: 280%;
+}
+.chip-name {
+  z-index: 99;
+  position: absolute;
+  top: 80%;
+  left: 20%;
+  color: white;
+  font-size: 12px;
+  width: 180px;
+  text-align: left;
+  text-transform: uppercase;
+}
+.chip-cvv {
+  top: 32%;
+  font-size: 24px;
+  left: 110%;
+  text-align: right;
+  color: black;
+}
+.sub-text-exp {
+  z-index: 99;
+  position: absolute;
+  top: 60%;
+  left: 250%;
+  color: white;
+  font-size: 9px;
+  width: 180px;
+  text-align: left;
+  font-weight: 200;
+}
+.chip-exp {
+  z-index: 99;
+  position: absolute;
+  top: 80%;
+  left: 250%;
+  color: white;
+  font-size: 12px;
+  width: 180px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+// card back css
+.card-show .back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+.card-show.flipped {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+
+// black and white strips on card back
+.strip-black {
+  z-index: 99;
+  background-color: black;
+  border-radius: 0% !important;
+  width: 310px !important;
+  height: 40px !important;
+  top: 25%;
+}
+.strip-white {
+  z-index: 99;
+  background-color: #fffe;
+  border-radius: 0% !important;
+  width: 290px !important;
+  height: 40px !important;
+  top: 110%;
+  left: 10%;
+}
+img.img-back {
+  top: 160%;
+}
+p,
+span,
+small {
+  height: 0px;
+}
+
+// submit button
+.submit-button {
+  display: flex;
+  justify-content: center;
+}
+.btn-primary {
+  width: 100%;
+  text-align: center;
+  background-color: #006bb7;
+}

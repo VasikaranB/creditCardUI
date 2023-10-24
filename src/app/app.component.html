@@ -1,0 +1,137 @@
+<div class="header">Credit Card</div>
+<div class="cardnew">
+  <label class="card-img">
+    <div id="card-show" class="card-show" [class.flipped]="flipped">
+      <div class="front">
+        <img class="base-img" src="assets/images/6.jpeg" />
+        <img class="chip-img" src="assets/images/chip.png" />
+        <h5 class="chip-num">{{ cardNumber ? cardNumber : masked }}</h5>
+        <p>
+          <small class="sub-text">CARD HOLDER</small><br /><span
+            class="chip-name"
+            >{{ cardName ? cardName : "RICARDO KAKA" }}</span
+          >
+        </p>
+        <p>
+          <small class="sub-text-exp">EXPIRES</small><br /><span
+            class="chip-exp"
+            >{{
+              month && year
+                ? month + "/" + year
+                : month && !year
+                ? month + "/YY"
+                : !month && year
+                ? "MM/" + year
+                : "MM/YY"
+            }}</span
+          >
+        </p>
+        <img class="brand-img" [src]="imagePath" />
+      </div>
+      <div class="back">
+        <img class="back base-img" src="assets/images/6.jpeg" />
+        <div class="strip-black"></div>
+        <div class="strip-white"></div>
+        <p>
+          <small class="sub-text sub-cvv">CVV</small><br /><span
+            class="chip-name chip-cvv"
+            >{{ cvv ? cvv : "" }}</span
+          >
+        </p>
+        <img class="brand-img img-back" [src]="imagePath" />
+      </div>
+    </div>
+  </label>
+  <div class="form-div">
+    <form id="ccForm" [formGroup]="ccForm">
+      <div class="form-group px-3 pb-3">
+        <label for="cardNumber">Card Number </label>
+        <input
+          id="cardNumber"
+          class="form-control"
+          type="text"
+          formControlName="cardNumber"
+          (keyup)="manageCardNumber($event)"
+          ccNumber
+          maxLength="24"
+        />
+      </div>
+      <div class="form-group px-3 pb-3">
+        <label for="cardName">Card Name </label>
+        <input
+          id="cardName"
+          class="form-control card-name"
+          type="text"
+          formControlName="cardName"
+          [(ngModel)]="cardName"
+          autocomplete="off"
+          maxlength="21"
+        />
+      </div>
+      <div class="row px-3 pb-2">
+        <div class="form-group col-8 pr-4">
+          <label for="month">Expiration Date</label>
+          <div class="exp-date">
+            <div ngbDropdown class="mr-3" role="group" aria-label="month">
+              <button class="btn btn-select" id="month" ngbDropdownToggle>
+                {{ ccForm.value["month"] ? ccForm.value["month"] : "Month" }}
+              </button>
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button
+                  *ngFor="let mon of monthDisplay"
+                  class="dropdown-item"
+                  ngbDropdownItem
+                  (click)="changeMonth(mon)"
+                >
+                  {{ mon }}
+                </button>
+              </div>
+            </div>
+            <div ngbDropdown role="group" aria-label="month">
+              <button
+                class="btn btn-select text-left"
+                id="month"
+                ngbDropdownToggle
+              >
+                {{ ccForm.value["year"] ? ccForm.value["year"] : "Year" }}
+              </button>
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button
+                  *ngFor="let yea of years"
+                  class="dropdown-item"
+                  ngbDropdownItem
+                  (click)="changeYear(yea)"
+                >
+                  {{ yea }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-4">
+          <label for="cvv">CVV </label>
+          <input
+            id="cvv"
+            class="form-control"
+            type="text"
+            formControlName="cvv"
+            maxLength="4"
+            (focus)="flipCard()"
+            (focusout)="flipCard()"
+            (keyup)="manageCVV($event)"
+            ccCVC
+          />
+        </div>
+      </div>
+      <div class="submit-button px-3">
+        <button
+          [disabled]="!ccForm.valid"
+          class="btn btn-primary"
+          (click)="pay()"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
